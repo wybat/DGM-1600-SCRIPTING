@@ -7,3 +7,4 @@
 "it's over 9000!"
 "I'm Batman."
 "Where is my Super suit!"
+"Something else awsome."
