@@ -5,3 +5,4 @@
 "Stick 'em with the pointy end."
 "It's a me, Mario!"
 "it's over 9000!"
+"I'm Batman."
