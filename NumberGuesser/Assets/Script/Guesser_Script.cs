@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Guesser_Script : MonoBehaviour {
 
-    public int max = 1000;
-    public int min = 1;
+    public int max;
+    public int min;
     public int guess;
-
-
 
     // Use this for initialization
     private void Start () {
@@ -17,7 +15,7 @@ public class Guesser_Script : MonoBehaviour {
         print("Pick a number between " +min +" and " +max);
 
         //Is the value GUESS
-        print("Is the number 500");
+        print("Is the number "+guess +"?");
         //Instructions - Push these buttons
         print("Up arrow for higher, Down arrow for lower, Enter if correct");
 
@@ -25,6 +23,14 @@ public class Guesser_Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Update () {
-        
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            min = guess;
+            guess = (min + max) / 2;
+            print("Is the number " +guess +"?");
+        }
+
+        //Up arrow
+
+        //Enter
 	}
 }
