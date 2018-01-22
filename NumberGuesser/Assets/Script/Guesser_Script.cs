@@ -9,6 +9,7 @@ public class Guesser_Script : MonoBehaviour {
     private int guess;
     public int count;
 
+
     // Use this for initialization
     private void Start () {
 
@@ -25,8 +26,8 @@ public class Guesser_Script : MonoBehaviour {
 
     private void NextGuess() {
         count --;
-        //figure out how to get guess to be randomized ************************************
-        guess = (min + max) / 2;
+        //random guess between max and min
+		guess = Random.Range(min,max);
         print("Is the number " + guess + "?");
     }
 	
@@ -46,8 +47,10 @@ public class Guesser_Script : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Return)) {
             print("COMPUTER WIN!");
         }
-        //If count gets to 0, you win ********************************************************
-        
+        //If count gets to 0, you win 
+        if (count == 0){
+            print("I give in... you win");
 
+        }
     }
 }
