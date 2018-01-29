@@ -6,56 +6,47 @@ using UnityEngine.UI;
 public class Script : MonoBehaviour
 {
 
-    public enum States { cell, window, gate, bed };
+    public enum States { The_car,Play_dead,};
     public States currentState;
     public Text TextObject;
+    public Text Titleobject;
+    public int sleep;
 
     // Use this for initialization
     void Start()
     {
-        currentState = States.cell;
+        currentState = States.The_car;
+        sleep = Random.Range(1, 11);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentState == States.cell){Cell();}
-        if (currentState == States.bed){Bed();}
-        if (currentState == States.gate){Gate();}
+        if (currentState == States.The_car){The_car();}
+        if (currentState == States.Play_dead){Play_dead();}
     }
 
-    private void Cell()
+    private void The_car()
     {
+        Titleobject.text = "The Car";
+        TextObject.text = "Your in the car arriving to your grandparents house. Your eyes are shut as the car is put in park.\n" +
+            "You have 3 options... \n" +
+            "1. you can either play dead and hope your parents leave you in the car. \n" +
+            "2. Walk in the front door withe your parents. \n" +
+            "3. sneak around back where the rest of the kids are playing.";
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Play_dead;}
+    }
+    private void Play_dead()
+    {
+        Titleobject.text = "Attempt of Death";
+        if (sleep <= 6)
+        {
+
+        }
+        else
+        {
+            TextObject.text = "";
+        }
         
-        TextObject.text = "You are in a cell. It's gross and dark and stinky. \n" +
-            "There is a window. \n" +
-            "There is a Bed. \n" +
-            "There is a Gate. \n" +
-            "Press W for window, Gfor Gate, B for Bed.";
-        if (Input.GetKeyDown(KeyCode.W)) { currentState = States.window; }
-        if (Input.GetKeyDown(KeyCode.G)) { currentState = States.gate; }
-        if (Input.GetKeyDown(KeyCode.B)) { currentState = States.bed; }
-    }
-    private void Bed()
-    {
-        print("Your Looking at the dark gross bed. /n" +
-            "There is a window. /n" +
-            "There is a Gate. /n" +
-            "There is a Bed. /n" +
-            "Press W for Window, G for Gate, B for Bed. /n");
-        if (Input.GetKeyDown(KeyCode.W)) { currentState = States.window; }
-        if (Input.GetKeyDown(KeyCode.G)) { currentState = States.gate; }
-        if (Input.GetKeyDown(KeyCode.B)) { currentState = States.bed; }
-    }
-    private void Gate()
-    {
-        print("The Gate is barred and locked... no way your getting through this way. /n" +
-            "There is a window. /n" +
-            "There is a Gate. /n" +
-            "There is a Bed. /n" +
-            "Press W for Window, G for Gate, B for Bed. /n");
-        if (Input.GetKeyDown(KeyCode.W)) { currentState = States.window; }
-        if (Input.GetKeyDown(KeyCode.G)) { currentState = States.gate; }
-        if (Input.GetKeyDown(KeyCode.B)) { currentState = States.bed; }
     }
 }

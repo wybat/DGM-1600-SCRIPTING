@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f529d7ee500b1854689180c4ad381f53
+timeCreated: 1517243857
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sketch College
+  fontNames:
+  - Sketch College
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
