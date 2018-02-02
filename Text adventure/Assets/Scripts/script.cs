@@ -58,7 +58,7 @@ public class Script : MonoBehaviour
             "mission failed... welll get em next time. \n" +
             "They ask you to help with the presents and food as you make your journey through the front door.\n" +
             "Press Enter to continue";
-            if (Input.GetKeyDown(KeyCode.KeypadEnter)) { currentState = States.Front_door;}
+            if (Input.GetKeyDown(KeyCode.Return)) { currentState = States.Front_door;}
         }
     }
     private void Front_Door()
