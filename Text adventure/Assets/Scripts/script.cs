@@ -64,7 +64,8 @@ public class Script : MonoBehaviour
     private void Front_Door()
     {
         Titleobject.text = "OH THE HUMANITY";
-        TextObject.text = "";
+        TextObject.text = "Your parents assure your awake, as your stumble out of the car and your parents make you carry out the birthday presents and let alone make you walk in first getting mauled by the dog and hearing your name called in excitment 50 times. " +
+        "The food is out and ready to eat as the bigger cousins are playing football outside. do you join them for a quick game ? or do you begin to scarf down your food?";
     }
     private void Back_yard01()
     {
