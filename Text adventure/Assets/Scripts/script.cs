@@ -6,17 +6,23 @@ using UnityEngine.UI;
 public class script : MonoBehaviour
 {
 
-    public enum States { The_car,Play_dead,Back_yard01,Front_door,Wait01,Pass,Football_game01,Game_End01,Food01,Grandpa01,Old01,Young01,Downstairs01,Food02,Fridge };
+    public enum States { The_car,Play_dead,Back_yard01,Front_door,Wait01,Pass,Football_game01,Game_End01,Food01,Grandpa01,Old01,Young01,Downstairs01,Food02,Fridge,Fridge01 };
     public States currentState;
     public Text TextObject;
     public Text TitleObject;
     public int sleep;
+    public bool Game01;
+    public bool Full01;
+    public bool Gpa01;
+    public bool Bcake;
+
 
     // Use this for initialization
     void Start()
     {
         currentState = States.The_car;
         sleep = Random.Range(1, 11);
+        
     }
 
     // Update is called once per frame
@@ -29,14 +35,15 @@ public class script : MonoBehaviour
         else if (currentState == States.Front_door) { Front_Door(); }
         else if (currentState == States.Pass) { Pass(); }
         else if (currentState == States.Football_game01) { Football_game01(); }
-        else if (currentState == States.Food01) { Food01(); }
+        else if (currentState == States.Food01) { Food01();Full01 = true; }
         else if (currentState == States.Grandpa01) { Grandpa01(); }
         else if (currentState == States.Downstairs01) { Downstairs01(); }
-        else if (currentState == States.Young01) { Young01(); }
-        else if (currentState == States.Old01) { Old01(); }
-        else if (currentState == States.Food02) { Food02(); }
+        else if (currentState == States.Young01) { Young01();Game01 = false; }
+        else if (currentState == States.Old01) { Old01(); Game01 = true; }
+        else if (currentState == States.Food02) { Food02(); Full01 = false; }
         else if (currentState == States.Fridge) { Fridge(); }
         else if (currentState == States.Game_End01) { End_game01(); }
+        else if (currentState == States.Fridge01) { Fridge01(); }
     }
 
     private void The_car()
@@ -113,6 +120,7 @@ public class script : MonoBehaviour
         "But Oh no.. nature takes its course as you begin to have to pee due to a soda you drank before. \n" +
         "1. Pass Grandpa and use the upstairs. /n" +
         "2. Risk the dark realm of the downstairs.";
+        Full01 = true;
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Grandpa01;}
         if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.Downstairs01;}
         
@@ -133,6 +141,7 @@ public class script : MonoBehaviour
         TextObject.text = "You smile at the puny 5 year old trembeling before you as the game starts grabbing him and throwing him like the tiny toddler he is. causing the quater back (your 10 year old cousin) to flee back wards as you trample him and winning the game due to him making a goal on himself.  the older cousins tisk and point out that you made poor Timmy cry. as ashamed you are you are still glad to finally win a game for your helpless cousins team your always setup on." +
         "after being ranted by you cousins for not being a man about things you walk inside for some finally well deserved grub. /n" +
         "Press Enter to continue.";
+        Game01 = false;
         if (Input.GetKeyDown(KeyCode.Return)) { currentState = States.Food02; }
 
     }
@@ -151,30 +160,69 @@ public class script : MonoBehaviour
         TextObject.text = "You stare deeply in your 26 year old cousins eyes as he gives a smirk... you gulp as you hear the words HIKE you find yourself fly in the air with the force of a train applied to your chest. as you lie on the ground in pain. your cousins give you good rep and help you up for taking a beating and loosing in the most honorable way. " +
         "while being patted on the back your hunger is getting larger with each pat.you walk inside as you see theres not as much food but your cousins offer you some of their food due to your injuries they made. \n "+
         "Press enter to continue";
+        Game01 = true;
         if (Input.GetKeyDown(KeyCode.Return)) { currentState = States.Food02; }
     }
     private void Grandpa01()
     {
+        if (Gpa01 == false)
+        {
+            TitleObject.text = "The attack of the elderly";
+            TextObject.text = "As soon as you begin to pass grandpa he grabs your arm and pulls you close. (oh shoot) ''Hey there kiddo'' you roll your eyes praying that-- you know when i was your age... You have no way out... looks like your gonna have to lend your ear for eternity. \n" +
+            "Press Enter to continue";
+            if (Input.GetKeyDown(KeyCode.Return)) { currentState = States.Game_End01; }
+        }
+        else
         TitleObject.text = "Grandpa...";
         TextObject.text = "As soon as you begin to pass grandpa he grabs your arm and pulls you close. (oh shoot) ''Hey there kiddo'' you roll your eyes praying that-- you know when i was your age..." +
-        "oh crap. Its happening again.last time this happened it lasted 2 hours...You HAVE TO FIND A WAY OUT OR ELSE NATURES GONNA TAKE ITS COURSE ON POOR GRANDPA.";
+        "You suddenly fake a bloody nose and tell him that you played a rough game of football outside as you run to the bathroom... mission sucess. \n" +
+        "Press Enter to continue";
+        if (Input.GetKeyDown(KeyCode.Return)) { currentState = States.Game_End01; }
+
     }
     private void Downstairs01()
     {
         TitleObject.text = "downstairs";
         TextObject.text = "You Venture the dark of the world below as you search for the lights on the wall." +
-        "your heart races as it feels like the wals never seem to end as you continue searching foor the light. do you keep on walking or try the upstairs one with granpa ? ";
+        "your heart races as it feels like the wals never seem to end as you continue searching foor the light. \n" +
+        "1. Do you continue downstairs?" +
+        "2. Do you run cowardly upstairs?";
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Downstairs01; }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.Grandpa01; }
     }
     private void Fridge()
     {
+        if (Full01 == false)
+        {
+            TitleObject.text = "But wait... is that a fridge?";
+            TextObject.text = "You finally find the lights as you see there is full fridge full of food next to the light switch. \n" +
+            "1. See whats good? \n" +
+            "2. Continue on your way";
+            if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Fridge01; }
+            if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Fridge01; }
+
+        }
+        else
         TitleObject.text = "But wait... theres more";
         TextObject.text = "You finally find the lights as you see there is full fridge full of food next to the light switch. you can eat some or just continue your way to the bathroom. \n" +
         "There is a fridge but your already too full...so you continue on your way to the bathroom.";
     }
-    private void Eating_Fridge()
+    private void Fridge01()
     {
-        TitleObject.text = "OH... CRAP";
-        TextObject.text = "you eat as much as in the fridge as you can realizing.... YOU ATE THE BIRTHDAY CAKE. how are you going to explain that to the family.... or do you have too......you pretend nothing happens as you continue to find the bathroom and finally using it to fulfill natures demands. then run upstairs as you pretend nothing happened.";
+        if (Full01 == false)
+        {
+            TitleObject.text = "OH... CRAP";
+            TextObject.text = "you eat as much as in the fridge as you can realizing.... YOU ATE THE BIRTHDAY CAKE. how are you going to explain that to the family.... or do you have too......you pretend nothing happens as you continue to find the bathroom and finally using it to fulfill natures demands. then run upstairs as you pretend nothing happened. \n" +
+                "press Enter to continue";
+            if (Input.GetKeyDown(KeyCode.Return)) { currentState = States.Game_End01; }
+        }
+        else
+        {
+            TitleObject.text = "The Labratory";
+            TextObject.text = "You use the bathroom and finally feel your bladders relif. \n" +
+                "Press enter to continue.";
+            if (Input.GetKeyDown(KeyCode.Return)) { currentState = States.Game_End01; }
+        }
     }
     private void End_game01()
     {
