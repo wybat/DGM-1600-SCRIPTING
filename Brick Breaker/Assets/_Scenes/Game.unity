@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 10
-  boundX: 8.97
+  boundX: 8.4
 --- !u!60 &670842056
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 670842054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -3.6, z: 0}
+  m_LocalPosition: {x: 0.03, y: -3.5, z: 0}
   m_LocalScale: {x: 3.1442208, y: 3.1442208, z: 3.1442208}
   m_Children: []
   m_Father: {fileID: 0}
