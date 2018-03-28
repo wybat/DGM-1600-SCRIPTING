@@ -263,8 +263,9 @@ public class script : MonoBehaviour
             TextObject.text = "You come out of the bathroom as granda pulls you aside as everyone beings the feast on the cake. 'AS I WAS SAYING... ' he says irritatingly...should have taken another route... you miss the feast of the cake and go home with no delicious cake but with memories of grandpas time when he was a kid. \n" +
             "You lose.. no cake for you";
         }
-        if (Bcake == false )
+        else if (Bcake == false)
         {
+            
             TitleObject.text = "YOU WIN";
             TextObject.text = "The feast was great! YOU WIN you survived and got the delicious cake as you go home and eat grandmas cookies she also gave you for being 'such a good boy.' truly a day to be alive.";
         }
@@ -274,12 +275,15 @@ public class script : MonoBehaviour
     {
         if (sleep01 == true)
         {
-            TitleObject.text = "Smooth criminal";
+            TitleObject.text = "Smooth Criminal";
             TextObject.text = "when she gets to you she asked if you ate it due to you going downstairs. But you explain you just woke up and now just joining the party. \n" +
             "you smooth criminal you....You win!";
         }
-        else
+        if (sleep01 == false)
+        {
             TitleObject.text = "RED HANDED";
             TextObject.text = "You give in immediately explaining you not knowing and the family shames you and mom and dad of course grounds you.... looks like your going out with that cake AND your grounded.... what a shame...";
+        }
+        
     }
 }

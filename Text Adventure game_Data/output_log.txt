@@ -19,11 +19,6 @@ Platform assembly: A:\SCRIPTING\DGM-1600-SCRIPTING\Text Adventure game_Data\Mana
 Loading A:\SCRIPTING\DGM-1600-SCRIPTING\Text Adventure game_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: A:\SCRIPTING\DGM-1600-SCRIPTING\Text Adventure game_Data\Managed\System.dll (this message is harmless)
 Platform assembly: A:\SCRIPTING\DGM-1600-SCRIPTING\Text Adventure game_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.187 seconds
+- Completed reload, in  0.071 seconds
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-UnloadTime: 1.035441 ms
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2e18 -> priority: 1 
-  Thread -> id: 256c -> priority: 1 
